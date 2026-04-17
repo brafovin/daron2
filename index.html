@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+<title>Enten-Flug</title>
+<link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div id="app">
+    <canvas id="game" width="960" height="540"></canvas>
+
+    <div id="hud" class="hidden">
+      <div id="score">0</div>
+      <button id="backToMenu" type="button" title="Zurück zum Menü (Esc)">Menü</button>
+    </div>
+
+    <div id="menu">
+      <div class="menu-card">
+        <h1>Enten-Flug</h1>
+        <p class="subtitle">Reite deine Ente durch die Wolken</p>
+
+        <div class="menu-grid">
+          <section class="customizer">
+            <h2>Ente gestalten</h2>
+            <canvas id="preview" width="280" height="220"></canvas>
+
+            <div class="controls">
+              <label>
+                <span>Körperfarbe</span>
+                <input type="color" data-cfg="bodyColor" value="#ffd400" />
+              </label>
+              <label>
+                <span>Flügelfarbe</span>
+                <input type="color" data-cfg="wingColor" value="#e6b800" />
+              </label>
+              <label>
+                <span>Schnabelfarbe</span>
+                <input type="color" data-cfg="beakColor" value="#ff8a00" />
+              </label>
+              <label>
+                <span>Augenfarbe</span>
+                <input type="color" data-cfg="eyeColor" value="#101010" />
+              </label>
+              <label>
+                <span>Größe</span>
+                <select data-cfg="size">
+                  <option value="small">Klein</option>
+                  <option value="medium" selected>Mittel</option>
+                  <option value="large">Groß</option>
+                </select>
+              </label>
+              <label>
+                <span>Hut</span>
+                <select data-cfg="hat">
+                  <option value="none">Keiner</option>
+                  <option value="crown">Krone</option>
+                  <option value="cap">Mütze</option>
+                  <option value="wizard">Zauberhut</option>
+                </select>
+              </label>
+              <label class="checkbox">
+                <input type="checkbox" data-cfg="sunglasses" />
+                <span>Sonnenbrille</span>
+              </label>
+              <label class="checkbox">
+                <input type="checkbox" data-cfg="rider" checked />
+                <span>Reiter zeigen</span>
+              </label>
+            </div>
+          </section>
+
+          <section class="settings">
+            <h2>Einstellungen</h2>
+            <div class="controls">
+              <label>
+                <span>Schwierigkeit</span>
+                <select data-set="difficulty">
+                  <option value="easy">Einfach</option>
+                  <option value="normal" selected>Normal</option>
+                  <option value="hard">Schwer</option>
+                </select>
+              </label>
+              <label>
+                <span>Hintergrund</span>
+                <select data-set="theme">
+                  <option value="day" selected>Tag</option>
+                  <option value="sunset">Sonnenuntergang</option>
+                  <option value="night">Nacht</option>
+                </select>
+              </label>
+            </div>
+            <div class="hiscore">
+              Highscore: <span id="hiscore">0</span>
+            </div>
+            <p class="hint">
+              Steuerung: <kbd>Leertaste</kbd> / <kbd>↑</kbd> / Klick zum Flattern.
+              <kbd>Esc</kbd> für Menü.
+            </p>
+          </section>
+        </div>
+
+        <button id="play" type="button">▶ Spielen</button>
+      </div>
+    </div>
+
+    <div id="gameover" class="hidden">
+      <div class="menu-card small">
+        <h2>Bruchlandung!</h2>
+        <p>Punkte: <span id="finalScore">0</span></p>
+        <p>Highscore: <span id="finalHi">0</span></p>
+        <div class="row">
+          <button id="again" type="button">Nochmal</button>
+          <button id="toMenu" type="button">Menü</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="duck.js"></script>
+  <script src="menu.js"></script>
+  <script src="game.js"></script>
+</body>
+</html>
