@@ -11,14 +11,22 @@
     <canvas id="game" width="960" height="540"></canvas>
 
     <div id="hud" class="hidden">
-      <div id="score">0</div>
-      <button id="backToMenu" type="button" title="Zurück zum Menü (Esc)">Menü</button>
+      <div id="hud-top">
+        <div id="score">0</div>
+        <button id="backToMenu" type="button" title="Zurück zum Menü (Esc)">Menü</button>
+      </div>
+      <div id="dpad">
+        <button data-dir="up"    class="dpad-btn dpad-up"    type="button">▲</button>
+        <button data-dir="left"  class="dpad-btn dpad-left"  type="button">◀</button>
+        <button data-dir="right" class="dpad-btn dpad-right" type="button">▶</button>
+        <button data-dir="down"  class="dpad-btn dpad-down"  type="button">▼</button>
+      </div>
     </div>
 
     <div id="menu">
       <div class="menu-card">
         <h1>Enten-Flug</h1>
-        <p class="subtitle">Reite deine Ente durch die Wolken</p>
+        <p class="subtitle">Reite & fliege frei durch die Welt</p>
 
         <div class="menu-grid">
           <section class="customizer">
@@ -94,8 +102,9 @@
               Highscore: <span id="hiscore">0</span>
             </div>
             <p class="hint">
-              Steuerung: <kbd>Leertaste</kbd> / <kbd>↑</kbd> / Klick zum Flattern.
-              <kbd>Esc</kbd> für Menü.
+              Steuerung: <kbd>W</kbd><kbd>A</kbd><kbd>S</kbd><kbd>D</kbd> oder
+              <kbd>↑</kbd><kbd>←</kbd><kbd>↓</kbd><kbd>→</kbd> zum Fliegen.
+              <kbd>Esc</kbd> für Menü. Sammle die goldenen Ringe!
             </p>
           </section>
         </div>

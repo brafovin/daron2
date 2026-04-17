@@ -227,14 +227,20 @@ button:hover { filter: brightness(1.08); }
 /* ---------- HUD ---------- */
 #hud {
   position: absolute;
-  top: 12px;
-  left: 12px;
-  right: 12px;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: stretch;
+  z-index: 5;
+  pointer-events: none;
+}
+
+#hud-top {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  z-index: 5;
-  pointer-events: none;
+  padding: 12px 12px 0;
 }
 
 #score {
@@ -257,3 +263,36 @@ button:hover { filter: brightness(1.08); }
   border-radius: 10px;
   font-size: 14px;
 }
+
+/* ---------- D-Pad ---------- */
+#dpad {
+  display: grid;
+  grid-template-columns: 52px 52px 52px;
+  grid-template-rows: 52px 52px 52px;
+  gap: 4px;
+  padding: 0 14px 14px;
+  place-self: end center;
+  pointer-events: auto;
+}
+
+.dpad-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0,0,0,.45);
+  color: rgba(255,255,255,.85);
+  border-radius: 10px;
+  font-size: 20px;
+  border: 1px solid rgba(255,255,255,.15);
+  padding: 0;
+  touch-action: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.dpad-btn:active,
+.dpad-btn.pressed { background: rgba(255,212,0,.55); }
+
+.dpad-up    { grid-column: 2; grid-row: 1; }
+.dpad-left  { grid-column: 1; grid-row: 2; }
+.dpad-right { grid-column: 3; grid-row: 2; }
+.dpad-down  { grid-column: 2; grid-row: 3; }
